@@ -1,0 +1,51 @@
+<div class="card pt-2 mt-5" >
+    <div class="card-body">
+      <h5 class="card-title mb-3">Crear Lista de mercado</h5>
+      <form [formGroup]="formularioLista" (ngSubmit)="recibeDatos()">
+        <div class="mb-3">
+            <select class="form-select form-select-lg mb-3"  formControlName="categoria">
+                <option disabled selected>Selecciones una opción valida</option>
+                <option value="Aseo">Aseo</option>
+                <option value="carnes Frias">Carnes Frias</option>
+                <option value="Lacteos">Lacteos</option>
+            </select>
+        </div>
+        <div class="mb-3">
+          <label for="producto" class="form-label">producto</label>
+          <input type="text" class="form-control" id="producto" formControlName="producto">
+          <div id="emailHelp" class="form-text"></div>
+        </div>
+        <div class="mb-3">
+          <label for="cantidad" class="form-label">cantidad</label>
+          <input type="number" class="form-control" id="cantidad" name="cantidad"  formControlName="cantidad" >
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar</button>
+    </form>
+    </div>
+  </div>
+
+
+  <div class="card pt-2 mt-5" >
+    <div class="card-body">
+      <h5 class="card-title">Lista de mercado</h5>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Categoria</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Cantidad</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let lista of datosLista;">
+                <td>{{lista.categoria}}</td>
+                <td>{{lista.producto}}</td>
+                <td>{{lista.cantidad}}</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
